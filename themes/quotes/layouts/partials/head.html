@@ -1,4 +1,5 @@
 {{ $img_twitter := .Resources.GetMatch "twitter_card_image.webp" }}
+{{ $img_og := .Resources.GetMatch "og_card_image.jpg" }}
 {{ $image := .Resources.GetMatch "author_img.webp" }}
 <head>
     <meta name="robots" content="all">
@@ -20,12 +21,17 @@
     <meta property="og:url" content="{{ .Permalink }}" />
     {{ with $img_twitter }}
     <meta name="twitter:image" content="{{ $img_twitter.Permalink }}">
+    {{ end }}
     {{ if $.IsPage }}
     <meta name="twitter:image:alt" content="{{ .Params.author }} Quote: {{ .Title }}">
     {{ else }}
     <meta name="twitter:image:alt" content="{{ .Description }}">
     {{ end }}
-    <meta name="image" property="og:image" content="{{ $img_twitter.Permalink }}" />
+    {{ with $img_og }}
+    <meta name="image" property="og:image" content="{{ $img_og.Permalink }}" />
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="{{ $img_og.Width }}">
+    <meta property="og:image:height" content="{{ $img_og.Height }}">
     {{ end }}
     <meta property="og:site_name" content="Quotes abd Sayings" />
     <meta property="og:locale" content="{{ .Site.Language.Lang }}" />
