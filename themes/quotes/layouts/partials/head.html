@@ -25,7 +25,7 @@
     {{ else }}
     <meta name="twitter:image:alt" content="{{ .Description }}">
     {{ end }}
-    <meta property="og:image" content="{{ $img_twitter.Permalink }}" />
+    <meta name="image" property="og:image" content="{{ $img_twitter.Permalink }}" />
     {{ end }}
     <meta property="og:site_name" content="Quotes abd Sayings" />
     <meta property="og:locale" content="{{ .Site.Language.Lang }}" />
@@ -34,6 +34,7 @@
     {{ else }}
     <meta property="og:type" content="article" />
     {{ end }}
+    <meta name="author" content="{{ .Params.author }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@q_and_s_net">
     <meta name="twitter:creator" content="@q_and_s_net">
