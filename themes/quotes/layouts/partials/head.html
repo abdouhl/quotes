@@ -7,26 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ with .Keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
-    
     <title>{{ .Title }}</title>
-    <meta property="og:title" content="{{ .Title }}" />
-    <meta name="twitter:title" content="{{ .Title }}">
     <meta name="description" content="{{ .Description }}">
+    <meta name="author" content="{{ .Params.author }}">
+    <link rel="canonical" href="{{ .Permalink }}">
+    
+    
+    
+    <meta property="og:title" content="{{ .Title }}" />
     <meta property="og:description" content="{{ .Description }}" />
-    <meta name="twitter:description" content="{{ .Description }}">
-
-    
-    
-    
     <meta property="og:url" content="{{ .Permalink }}" />
-    {{ with $img_twitter }}
-    <meta name="twitter:image" content="{{ $img_twitter.Permalink }}">
-    {{ end }}
-    {{ if $.IsPage }}
-    <meta name="twitter:image:alt" content="{{ .Params.author }} Quote: {{ .Title }}">
-    {{ else }}
-    <meta name="twitter:image:alt" content="{{ .Description }}">
-    {{ end }}
     {{ with $img_og }}
     <meta name="image" property="og:image" content="{{ $img_og.Permalink }}" />
     <meta property="og:image:type" content="image/jpeg">
@@ -40,11 +30,21 @@
     {{ else }}
     <meta property="og:type" content="article" />
     {{ end }}
-    <meta name="author" content="{{ .Params.author }}">
+    
+    
+    
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ .Description }}">
+    {{ if $img_twitter }}
+    <meta name="twitter:image" content="{{ $img_twitter.Permalink }}">
+    <meta name="twitter:image:alt" content="{{ .Description }}">
+    {{ end }}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@q_and_s_net">
     <meta name="twitter:creator" content="@q_and_s_net">
-    <link rel="canonical" href="{{ .Permalink }}">
+    
+    
+    
 
     <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.3/dist/flowbite.min.css" />
     {{ $rlink := "" }}
