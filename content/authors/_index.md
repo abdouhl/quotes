@@ -1,3 +1,3 @@
 +++
-outputs: [html, json]
+outputs = ["json","html"]
 +++
