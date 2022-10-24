@@ -2,4 +2,4 @@ baseURL = "https://quotes.quotesandsayings.net/"
 languageCode = "en-us"
 title = "Quotes"
 theme = "quotes"
-
+paginate = 30
