@@ -21,6 +21,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div id="content">
         {{- block "main" . }}{{- end }}
         </div>
+        <div class="mx-auto">
+		{{ partialCached "ads/h_ad.html" . }}
+		</div>
         {{- partial "footer.html" . -}}
         {{ partialCached "scripts.html" . }}
     </body>
